@@ -1,5 +1,3 @@
-<?hh // strict
-
 use function Usox\HackMock\{mock, prospect};
 
 class DefaultValueTest extends \Usox\HackMock\HackMock {

@@ -1,5 +1,3 @@
-<?hh // strict
-
 use HH\Lib\Str;
 use function Facebook\FBExpect\expect;
 use function Usox\HackMock\{mock, prospect, tear_down};

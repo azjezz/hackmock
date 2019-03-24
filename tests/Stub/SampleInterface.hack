@@ -1,6 +1,6 @@
-<?hh // strict
-
 namespace Stub;
+
+use type stdClass;
 
 interface SampleInterface {
 
@@ -14,7 +14,7 @@ interface SampleInterface {
 
 	public function noParamsButReturnsSampleInterfaceInstance(): SampleInterface;
 
-	public function basicParamValidation(int $int, string $string, float $float, \stdClass $class): mixed;
+	public function basicParamValidation(int $int, string $string, float $float, stdClass $class): mixed;
 
 	public function paramValidationWithClosure(string $string): mixed;
 

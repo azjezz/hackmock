@@ -4,32 +4,33 @@
 
 Creating mock objects for hacklang - yes, seriously.
 
-## Note
-
-Due to the use of `eval`, hackmock may stop working in future hhvm versions.
-
 ## What works?
+
 - Strict mode
 - Creating mocks of interfaces and concrete classes
 - Defining basic method expectations (parameter validation, return value definition)
 
 ## What does not work?
+
 - Everything else, especially rare and/or untested cases involving generics, etc.
 
-```php
-use function Usox\HackMock\{mock, prospect};
 
-class SomethingTest extends \Usox\HackMock\HackMock {
+```hack
+use namespace Usox\HackMock;
+use type Exception;
 
-  public function testSomething() {
-    $my_fine_class = mock(SomeInterface::class);
+class SomethingTest extends HackMock\HackMock {
 
-    prospect($my_fine_class, 'someMethodName')
+  public function testSomething(): void {
+    $mock = HackMock\mock(SomeInterface::class);
+    
+    HackMock\prospect($mock, 'someMethodName')
       ->once()
       ->andReturn('some-fine-value');
+    HackMock\prospect($object, 'someOtherMethodName')
+      ->andThrow(new Exception('foobar'));
 
-    prospect($my_fine_class, 'someOtherMethodName')
-      ->andThrow(new \Exception('foobar'));
+    ...
   }
 }
 ```

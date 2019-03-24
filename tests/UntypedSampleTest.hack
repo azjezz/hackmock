@@ -1,5 +1,3 @@
-<?hh // strict
-
 use function Usox\HackMock\{mock, prospect};
 
 class UntypedSampleTest extends \Usox\HackMock\HackMock {
