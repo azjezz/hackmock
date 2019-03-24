@@ -2,7 +2,8 @@ namespace Usox\HackMock;
 
 use type Facebook\HackTest\HackTest;
 
-abstract class HackMock extends HackTest {
+trait HackMock {
+  require extends HackTest;
 
   <<__Override>>
   public async function afterEachTestAsync(): Awaitable<void> {

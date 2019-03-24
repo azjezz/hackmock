@@ -4,26 +4,27 @@
 
 Creating mock objects for hacklang - yes, seriously.
 
-## What works?
+## What works
 
 - Strict mode
 - Creating mocks of interfaces and concrete classes
 - Defining basic method expectations (parameter validation, return value definition)
 
-## What does not work?
+## What does not work
 
 - Everything else, especially rare and/or untested cases involving generics, etc.
 
-
 ```hack
+use namespace Facebook\HackTest;
 use namespace Usox\HackMock;
 use type Exception;
 
-class SomethingTest extends HackMock\HackMock {
+class SomethingTest extends HackTest\HackTest {
+  use HackMock\HackMock;
 
   public function testSomething(): void {
     $mock = HackMock\mock(SomeInterface::class);
-    
+
     HackMock\prospect($mock, 'someMethodName')
       ->once()
       ->andReturn('some-fine-value');
